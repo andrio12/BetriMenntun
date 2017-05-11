@@ -1,0 +1,32 @@
+<%= form_with(model: seminar, local: true) do |form| %>
+  <% if seminar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(seminar.errors.count, "error") %> prohibited this seminar from being saved:</h2>
+
+      <ul>
+      <% seminar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :seminar_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :seminar_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assignments %>
+    <%= form.text_field :assignments, id: :seminar_assignments %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
